@@ -59,7 +59,7 @@ spec:
       containers:
         - name: info-api
           # CAMBIAR: la imagen que publicaron (ver README, paso "Publicar la imagen").
-          image: ghcr.io/USUARIO_GITHUB/info-api:latest
+          image: ghcr.io/juanmarquez03-cmd/info-api:latest
           imagePullPolicy: Always
           ports:
             - name: http
