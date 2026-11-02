@@ -1,0 +1,20 @@
+# Service NodePort: abre el puerto 30080 en TODOS los nodos. Cualquier nodo
+# reenvía la petición (kube-proxy) a uno de los pods listos, esté donde esté.
+#
+#   http://<IP-Tailscale-de-cualquier-nodo>:30080/api/info
+apiVersion: v1
+kind: Service
+metadata:
+  name: info-api
+  namespace: taller
+  labels:
+    app: info-api
+spec:
+  type: NodePort
+  selector:
+    app: info-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      nodePort: 30080
